@@ -14,9 +14,6 @@ class Ruler extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 400,
-      width: 100,
-      
       child: CustomPaint(
         foregroundPainter:
             _RulerPainter(context: context, tickColor: tickColor, style: style),
@@ -59,14 +56,14 @@ class _RulerPainter extends CustomPainter {
         var paragraphBuilder = ui.ParagraphBuilder(ui.ParagraphStyle())
           ..pushStyle(style.getTextStyle())
           ..addText('${ticker ~/ 10}');
-          //..pop();
+        //..pop();
         var paragraph = paragraphBuilder.build()
           ..layout(ui.ParagraphConstraints(width: 20));
 
-          if (ticker != 0.0 || showZero) {
-            canvas.drawParagraph(paragraph, Offset(20, y - (paragraph.height / 2)));
-          }
-        
+        if (ticker != 0.0 || showZero) {
+          canvas.drawParagraph(
+              paragraph, Offset(20, y - (paragraph.height / 2)));
+        }
       } else if (ticker % 5 == 0) {
         canvas.drawLine(Offset(0, y), Offset(10, y), cmTick);
       } else {
