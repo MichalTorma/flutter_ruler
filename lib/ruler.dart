@@ -3,12 +3,12 @@ import 'dart:ui' as ui;
 import 'package:flutter/widgets.dart';
 
 class Ruler extends StatelessWidget {
-  final double value;
+  
   final Color tickColor;
   final TextStyle style;
   final bool showZero;
 
-  Ruler({Key key, this.value, this.tickColor, this.style, this.showZero})
+  Ruler({Key key, this.tickColor, this.style, this.showZero})
       : super(key: key);
 
   @override
