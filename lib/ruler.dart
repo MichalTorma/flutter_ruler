@@ -52,7 +52,7 @@ class _RulerPainter extends CustomPainter {
     double maxSize = size.height / physicaLogicalRatio * 100 / dpr;
     while (ticker <= maxSize) {
       double y = ticker * physicaLogicalRatio * dpr;
-      print('ticker: $ticker, y: $y');
+      //print('ticker: $ticker, y: $y');
       if (ticker % 10 == 0) {
         canvas.drawLine(Offset(0, y), Offset(15, y), cmTick);
         var paragraphBuilder = ui.ParagraphBuilder(ui.ParagraphStyle())
