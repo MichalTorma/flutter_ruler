@@ -1,4 +1,0 @@
-#Mon Jul 15 00:14:28 CEST 2019
-base.0=/Users/amarok/src/flutter_ruler/build/app/intermediates/transforms/dexMerger/debug/0
-path.0=classes.dex
-renamed.0=classes.dex
