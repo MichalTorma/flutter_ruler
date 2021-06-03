@@ -4,11 +4,11 @@ import 'package:flutter/widgets.dart';
 
 class Ruler extends StatelessWidget {
   
-  final Color tickColor;
-  final TextStyle style;
-  final bool showZero;
+  final Color? tickColor;
+  final TextStyle? style;
+  final bool? showZero;
 
-  Ruler({Key key, this.tickColor, this.style, this.showZero})
+  Ruler({Key? key, this.tickColor, this.style, this.showZero})
       : super(key: key);
 
   @override
@@ -23,26 +23,26 @@ class Ruler extends StatelessWidget {
 }
 
 class _RulerPainter extends CustomPainter {
-  final BuildContext context;
-  final Color tickColor;
-  final TextStyle style;
+  final BuildContext? context;
+  final Color? tickColor;
+  final TextStyle? style;
   final bool showZero;
 
-  double dpr;
+  late double dpr;
   _RulerPainter(
       {this.showZero = false, this.tickColor, this.style, this.context}) {
-    dpr = MediaQuery.of(context).devicePixelRatio;
+    dpr = MediaQuery.of(context!).devicePixelRatio;
   }
 
   @override
   void paint(Canvas canvas, Size size) {
     Paint mmTick = Paint()
-      ..color = tickColor
+      ..color = tickColor!
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.5;
     Paint cmTick = Paint()
-      ..color = tickColor
+      ..color = tickColor!
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2.0;
@@ -56,7 +56,7 @@ class _RulerPainter extends CustomPainter {
       if (ticker % 10 == 0) {
         canvas.drawLine(Offset(0, y), Offset(15, y), cmTick);
         var paragraphBuilder = ui.ParagraphBuilder(ui.ParagraphStyle())
-          ..pushStyle(style.getTextStyle())
+          ..pushStyle(style!.getTextStyle())
           ..addText('${ticker ~/ 10}');
         //..pop();
         var paragraph = paragraphBuilder.build()
